@@ -3,16 +3,19 @@ name: Workflow
 on: push
 
 jobs:
-    first_job:
+    ascii_job:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
 
-            - name: List and read files
-              run: |
-                ls -ltra
-                cat README.md
+            - name: Install cowsay
+              run: sudo apt install cowsay -y
 
             - name: Generate ASCII Artwork
               run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+
+            - name: List and read files
+              run: |
+                ls -ltra
+                cat dragon.txt
