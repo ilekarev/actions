@@ -1,4 +1,4 @@
-name: Workflow
+name: Generate ASCII Artwork
 
 on: push
 
@@ -9,13 +9,8 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
-            - name: Install cowsay
-              run: sudo apt install cowsay -y
+            - name: List files
+              run: ls -ltra
 
-            - name: Generate ASCII Artwork
-              run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
-
-            - name: List and read files
-              run: |
-                ls -ltra
-                cat dragon.txt
+            - name: Execute script
+              run: ./ascii-script.sh
