@@ -11,4 +11,4 @@ jobs:
       runs-on: ${{ matrix.os }}
       steps:
       - name: Run Image on ${{ matrix.os }}
-        run: docker run nginx
+        run: docker run alpine
