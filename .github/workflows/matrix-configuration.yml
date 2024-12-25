@@ -1,0 +1,14 @@
+name: Matrix Configuration
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+    deploy:
+      strategy:
+        matrix:
+          os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+      runs-on: ${{ matrix.os }}
+      steps:
+      - name: Run Image on ${{ matrix.os }}
+        run: docker run nginx
